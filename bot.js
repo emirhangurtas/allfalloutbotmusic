@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
 const ayarlar = require('./ayarlar.json');
 const client = new Discord.Client({ fetchAllMembers: false, apiRequestMethod: 'sequential' });
-client.login(process.env BOT_TOKEN).then(() => console.log(`${client.user.tag} (${client.user.id}) ismi ile giriş yapıldı.`))
 const connections = new Map();
 let broadcast;
 
@@ -65,4 +64,6 @@ function doQueue(connData) {
   });
   dispatcher.on('error', (...e) => console.log('dispatcher', ...e));
   connData.dispatcher = dispatcher;
-}
+});
+
+client.login(process.env.BOT_TOKEN);
